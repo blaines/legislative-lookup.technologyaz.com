@@ -4,6 +4,7 @@ task :fetch_legislature => :environment do
   require 'open-uri'
   puts "#" * 75
   puts "FETCHING ARIZONA LEGISLATURE"
+  # TODO: suffix not implemented. ignore nicknames ("quoted")
   url = 'http://www.azleg.gov/MemberRoster.asp?Body=&SortBy=2'
   doc = Nokogiri::HTML(open(url))
   senate = doc.css("#senate tr")
