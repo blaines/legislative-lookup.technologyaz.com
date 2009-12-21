@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091221060842) do
+ActiveRecord::Schema.define(:version => 20091221094340) do
 
   create_table "districts", :primary_key => "gid", :force => true do |t|
     t.column "state", :string, :limit => 2
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20091221060842) do
     t.column "email_address", :string
     t.column "created_at", :timestamp
     t.column "updated_at", :timestamp
+    t.column "region", :string
   end
 
   create_table "lower_districts", :primary_key => "gid", :force => true do |t|
