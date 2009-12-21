@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081211190903) do
+ActiveRecord::Schema.define(:version => 20091221060842) do
 
   create_table "districts", :primary_key => "gid", :force => true do |t|
     t.column "state", :string, :limit => 2
@@ -24,5 +24,41 @@ ActiveRecord::Schema.define(:version => 20081211190903) do
   end
 
   add_index "districts", ["the_geom"], :name => "index_districts_on_the_geom", :spatial=> true 
+
+  create_table "legislators", :force => true do |t|
+    t.column "chamber", :string
+    t.column "session", :string
+    t.column "first_name", :string
+    t.column "middle_name", :string
+    t.column "last_name", :string
+    t.column "suffix", :string
+    t.column "party", :string
+    t.column "district", :string
+    t.column "phone_number", :string
+    t.column "fax_number", :string
+    t.column "email_address", :string
+    t.column "created_at", :timestamp
+    t.column "updated_at", :timestamp
+  end
+
+  create_table "lower_districts", :primary_key => "gid", :force => true do |t|
+    t.column "state", :string, :limit => 2
+    t.column "sldl", :string, :limit => 3
+    t.column "name", :string, :limit => 90
+    t.column "lsad", :string, :limit => 2
+    t.column "geo_id", :string, :limit => 12
+    t.column "lsad_trans", :string, :limit => 50
+    t.column "the_geom", :multi_polygon
+  end
+
+  create_table "upper_districts", :primary_key => "gid", :force => true do |t|
+    t.column "state", :string, :limit => 2
+    t.column "sldu", :string, :limit => 3
+    t.column "name", :string, :limit => 90
+    t.column "lsad", :string, :limit => 2
+    t.column "geo_id", :string, :limit => 12
+    t.column "lsad_trans", :string, :limit => 50
+    t.column "the_geom", :multi_polygon
+  end
 
 end

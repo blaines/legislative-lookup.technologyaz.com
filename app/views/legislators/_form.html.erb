@@ -1,0 +1,48 @@
+<% form_for @legislator do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :chamber %><br />
+    <%= f.text_field :chamber %>
+  </p>
+  <p>
+    <%= f.label :session %><br />
+    <%= f.text_field :session %>
+  </p>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :suffix %><br />
+    <%= f.text_field :suffix %>
+  </p>
+  <p>
+    <%= f.label :party %><br />
+    <%= f.text_field :party %>
+  </p>
+  <p>
+    <%= f.label :district %><br />
+    <%= f.text_field :district %>
+  </p>
+  <p>
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </p>
+  <p>
+    <%= f.label :fax_number %><br />
+    <%= f.text_field :fax_number %>
+  </p>
+  <p>
+    <%= f.label :email_address %><br />
+    <%= f.text_field :email_address %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

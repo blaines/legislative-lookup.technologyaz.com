@@ -1,0 +1,55 @@
+# Logfile created on Sun Dec 20 21:31:56 -0700 2009  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mDistrict Load (40.0ms)[0m   [0;1mSELECT * FROM "districts" WHERE (ST_Contains(the_geom, GeometryFromText('POINT(-89.0581621 42.3200189)', -1))) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (20.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060039)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (980.0ms)[0m   [0;1mCREATE TABLE legislators ("id" serial primary key, "first_name" character varying(255), "middle_name" character varying(255), "last_name" character varying(255), "suffix" character varying(255), "party" character varying(255), "district" integer, "phone_number" character varying(255), "fax_number" character varying(255), "email_address" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (60.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091221060039')[0m
+  [4;36;1mSQL (70.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060842)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPGError: ERROR: relation "legislators" already exists
+: CREATE TABLE legislators ("id" serial primary key, "chamber" character varying(255), "session" character varying(255), "first_name" character varying(255), "middle_name" character varying(255), "last_name" character varying(255), "suffix" character varying(255), "party" character varying(255), "district" character varying(255), "phone_number" character varying(255), "fax_number" character varying(255), "email_address" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060842)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (120.0ms)[0m   [0;1mDROP TABLE "legislators"[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mCREATE TABLE legislators ("id" serial primary key, "chamber" character varying(255), "session" character varying(255), "first_name" character varying(255), "middle_name" character varying(255), "last_name" character varying(255), "suffix" character varying(255), "party" character varying(255), "district" character varying(255), "phone_number" character varying(255), "fax_number" character varying(255), "email_address" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091221060842')[0m
+  [4;35;1mSQL (30.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m

@@ -1,0 +1,52 @@
+<% title "Legislator" %>
+
+<p>
+  <strong>Chamber:</strong>
+  <%=h @legislator.chamber %>
+</p>
+<p>
+  <strong>Session:</strong>
+  <%=h @legislator.session %>
+</p>
+<p>
+  <strong>First Name:</strong>
+  <%=h @legislator.first_name %>
+</p>
+<p>
+  <strong>Middle Name:</strong>
+  <%=h @legislator.middle_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%=h @legislator.last_name %>
+</p>
+<p>
+  <strong>Suffix:</strong>
+  <%=h @legislator.suffix %>
+</p>
+<p>
+  <strong>Party:</strong>
+  <%=h @legislator.party %>
+</p>
+<p>
+  <strong>District:</strong>
+  <%=h @legislator.district %>
+</p>
+<p>
+  <strong>Phone Number:</strong>
+  <%=h @legislator.phone_number %>
+</p>
+<p>
+  <strong>Fax Number:</strong>
+  <%=h @legislator.fax_number %>
+</p>
+<p>
+  <strong>Email Address:</strong>
+  <%=h @legislator.email_address %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_legislator_path(@legislator) %> |
+  <%= link_to "Destroy", @legislator, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", legislators_path %>
+</p>

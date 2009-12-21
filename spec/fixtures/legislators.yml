@@ -1,0 +1,25 @@
+one:
+  chamber: MyString
+  session: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  suffix: MyString
+  party: MyString
+  district: MyString
+  phone_number: MyString
+  fax_number: MyString
+  email_address: MyString
+
+two:
+  chamber: MyString
+  session: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  suffix: MyString
+  party: MyString
+  district: MyString
+  phone_number: MyString
+  fax_number: MyString
+  email_address: MyString
