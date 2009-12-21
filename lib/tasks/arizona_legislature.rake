@@ -23,6 +23,7 @@ task :fetch_legislature => :environment do
     legislator.email_address  = z.at_css("td:nth-child(4) a").text
     legislator.phone_number   = "602" + z.at_css("td:nth-child(6)").text.gsub(/(-|\(|\))/,"")
     legislator.fax_number     = "602" + z.at_css("td:nth-child(7)").text.gsub(/(-|\(|\))/,"")
+    legislator.save
   end
   house = doc.css("#house tr")
   house.shift
@@ -41,5 +42,6 @@ task :fetch_legislature => :environment do
     legislator.email_address  = z.at_css("td:nth-child(4) a").text
     legislator.phone_number   = "602" + z.at_css("td:nth-child(6)").text.gsub(/(-|\(|\))/,"")
     legislator.fax_number     = "602" + z.at_css("td:nth-child(7)").text.gsub(/(-|\(|\))/,"")
+    legislator.save
   end
 end
