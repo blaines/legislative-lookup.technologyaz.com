@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091221094340) do
+ActiveRecord::Schema.define(:version => 20091221093350) do
 
   create_table "districts", :primary_key => "gid", :force => true do |t|
     t.column "state", :string, :limit => 2
