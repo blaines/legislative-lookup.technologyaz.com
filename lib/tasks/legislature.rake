@@ -24,8 +24,10 @@ task :fetch_legislature => :environment do
     legislator.district       = z.at_css("td:nth-child(2)").text
     legislator.party          = z.at_css("td:nth-child(3)").text
     legislator.email_address  = z.at_css("td:nth-child(4) a").text.gsub(/(\r|\n|\t|\s|-)/,"")
-    legislator.phone_number   = "602" + z.at_css("td:nth-child(6)").text.gsub(/(-|\(|\))/,"")
-    legislator.fax_number     = "602" + z.at_css("td:nth-child(7)").text.gsub(/(-|\(|\))/,"")
+    phone = z.at_css("td:nth-child(6)").text.gsub(/(-|\(|\))/,"")
+    legislator.phone_number   = "602" + phone unless phone.blank?
+    fax = z.at_css("td:nth-child(7)").text.gsub(/(-|\(|\))/,"")
+    legislator.fax_number     = "602" + fax unless fax.blank?
     legislator.save
   end
   house = doc.css("#house tr")
@@ -46,8 +48,10 @@ task :fetch_legislature => :environment do
     legislator.district       = z.at_css("td:nth-child(2)").text
     legislator.party          = z.at_css("td:nth-child(3)").text
     legislator.email_address  = z.at_css("td:nth-child(4) a").text.gsub(/(\r|\n|\t|\s|-)/,"")
-    legislator.phone_number   = "602" + z.at_css("td:nth-child(6)").text.gsub(/(-|\(|\))/,"")
-    legislator.fax_number     = "602" + z.at_css("td:nth-child(7)").text.gsub(/(-|\(|\))/,"")
+    phone = z.at_css("td:nth-child(6)").text.gsub(/(-|\(|\))/,"")
+    legislator.phone_number   = "602" + phone unless phone.blank?
+    fax = z.at_css("td:nth-child(7)").text.gsub(/(-|\(|\))/,"")
+    legislator.fax_number     = "602" + fax unless fax.blank?
     legislator.save
   end
 end
