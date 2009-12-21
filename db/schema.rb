@@ -39,27 +39,6 @@ ActiveRecord::Schema.define(:version => 20091221094340) do
     t.column "email_address", :string
     t.column "created_at", :timestamp
     t.column "updated_at", :timestamp
-    t.column "region", :string
-  end
-
-  create_table "lower_districts", :primary_key => "gid", :force => true do |t|
-    t.column "state", :string, :limit => 2
-    t.column "sldl", :string, :limit => 3
-    t.column "name", :string, :limit => 90
-    t.column "lsad", :string, :limit => 2
-    t.column "geo_id", :string, :limit => 12
-    t.column "lsad_trans", :string, :limit => 50
-    t.column "the_geom", :multi_polygon
-  end
-
-  create_table "upper_districts", :primary_key => "gid", :force => true do |t|
-    t.column "state", :string, :limit => 2
-    t.column "sldu", :string, :limit => 3
-    t.column "name", :string, :limit => 90
-    t.column "lsad", :string, :limit => 2
-    t.column "geo_id", :string, :limit => 12
-    t.column "lsad_trans", :string, :limit => 50
-    t.column "the_geom", :multi_polygon
   end
 
 end

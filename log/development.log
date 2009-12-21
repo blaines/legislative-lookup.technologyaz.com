@@ -412,3 +412,609 @@ Migrating to AddRegionToLegislator (20091221094340)
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
   [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
   [4;36;1mLegislator Load (0.0ms)[0m   [0;1mSELECT * FROM "legislators" [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (170.0ms)[0m   [0mDROP TABLE "legislators"[0m
+  [4;36;1mSQL (40.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20091221060842'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060842)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (330.0ms)[0m   [0;1mCREATE TABLE legislators ("id" serial primary key, "chamber" character varying(255), "session" character varying(255), "first_name" character varying(255), "middle_name" character varying(255), "last_name" character varying(255), "suffix" character varying(255), "party" character varying(255), "district" character varying(255), "phone_number" character varying(255), "fax_number" character varying(255), "email_address" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091221060842')[0m
+  [4;36;1mSQL (20.0ms)[0m   [0;1mCOMMIT[0m
+Migrating to AddRegionToLegislator (20091221094340)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "legislators" ADD COLUMN "region" character varying(255)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091221094340')[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing LegislatorsController#new (for 98.213.89.201 at 2009-12-21 03:14:38) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+Rendering template within layouts/layout
+Rendering legislators/new
+Rendered legislators/_form (10.0ms)
+Completed in 80ms (View: 60, DB: 0) | 200 OK [http://legislative-lookup.technologyaz.com/legislators/new]
+
+
+Processing LegislatorsController#index (for 98.213.89.201 at 2009-12-21 03:14:42) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mLegislator Load (10.0ms)[0m   [0;1mSELECT * FROM "legislators" [0m
+Rendering template within layouts/layout
+Rendering legislators/index
+Completed in 10ms (View: 0, DB: 10) | 200 OK [http://legislative-lookup.technologyaz.com/legislators]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6029263429', E'AZ', '2009-12-21 10:14:59.137766', E'87', E'1', '2009-12-21 10:14:59.137766', E'6029265584', E'Pierce', NULL, E'R', E'--- 
+- spierce@azleg.gov
+', E'senate', E'Steve', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173160', E'AZ', '2009-12-21 10:14:59.147766', E'87', E'2', '2009-12-21 10:14:59.147766', E'6029264323', E'Hale', NULL, E'D', E'--- 
+- ahale@azleg.gov
+', E'senate', E'Albert', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (30.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173165', E'AZ', '2009-12-21 10:14:59.177766', E'87', E'3', '2009-12-21 10:14:59.177766', E'6029264138', E'Gould', NULL, E'R', E'--- 
+- rgould@azleg.gov
+', E'senate', E'Ron', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173154', E'AZ', '2009-12-21 10:14:59.187766', E'87', E'4', '2009-12-21 10:14:59.187766', E'6029264178', E'Harper', NULL, E'R', E'--- 
+- jharper@azleg.gov
+', E'senate', E'Jack', E'W.') RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173005', E'AZ', '2009-12-21 10:14:59.197766', E'87', E'5', '2009-12-21 10:14:59.197766', E'6029265219', E'Allen', NULL, E'R', E'--- 
+- sallen@azleg.gov
+', E'senate', E'Sylvia', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173106', E'AZ', '2009-12-21 10:14:59.207766', E'87', E'6', '2009-12-21 10:14:59.207766', E'6029265284', E'Gorman', NULL, E'R', E'--- 
+- pgorman@azleg.gov
+', E'senate', E'Pamela', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173250', E'AZ', '2009-12-21 10:14:59.207766', E'87', E'7', '2009-12-21 10:14:59.207766', E'6029264916', E'Waring', NULL, E'R', E'--- 
+- jwaring@azleg.gov
+', E'senate', E'Jim', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173155', E'AZ', '2009-12-21 10:14:59.217766', E'87', E'8', '2009-12-21 10:14:59.217766', E'6029264480', E'Allen', NULL, E'R', E'--- 
+- callen@azleg.gov
+', E'senate', E'Carolyn', E'S.') RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173225', E'AZ', '2009-12-21 10:14:59.227766', E'87', E'9', '2009-12-21 10:14:59.227766', E'6029265993', E'Burns', NULL, E'R', E'--- 
+- rburns@azleg.gov
+', E'senate', E'Robert', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173253', E'AZ', '2009-12-21 10:14:59.237766', E'87', E'10', '2009-12-21 10:14:59.237766', E'6029263376', E'Gray', NULL, E'R', E'--- 
+- lgray@azleg.gov
+', E'senate', E'Linda', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173270', E'AZ', '2009-12-21 10:14:59.247766', E'87', E'11', '2009-12-21 10:14:59.247766', E'6029264486', E'Leff', NULL, E'R', E'--- 
+- bleff@azleg.gov
+', E'senate', E'Barbara', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173112', E'AZ', '2009-12-21 10:14:59.257766', E'87', E'12', '2009-12-21 10:14:59.257766', E'6029265872', E'Nelson', NULL, E'R', E'--- 
+- jnelson@azleg.gov
+', E'senate', E'John', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173271', E'AZ', '2009-12-21 10:14:59.257766', E'87', E'13', '2009-12-21 10:14:59.257766', E'6029265911', E'Miranda', NULL, E'D', E'--- 
+- rmiranda@azleg.gov
+', E'senate', E'Richard', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6029263429', E'AZ', '2009-12-21 10:14:59.277766', E'87', E'14', '2009-12-21 10:14:59.277766', E'6029264485', E'Davis', NULL, E'D', E'--- 
+- dmccunedavis@azleg.gov
+', E'senate', E'Debbie', E'McCune') RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173149', E'AZ', '2009-12-21 10:14:59.287766', E'87', E'15', '2009-12-21 10:14:59.287766', E'6029265325', E'Cheuvront', NULL, E'D', E'--- 
+- kcheuvront@azleg.gov
+', E'senate', E'Ken', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173148', E'AZ', '2009-12-21 10:14:59.287766', E'87', E'16', '2009-12-21 10:14:59.287766', E'6029263830', E'Taylor', NULL, E'D', E'--- 
+- llandrumtaylor@azleg.gov
+', E'senate', E'Leah', E'Landrum') RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173245', E'AZ', '2009-12-21 10:14:59.307766', E'87', E'17', '2009-12-21 10:14:59.307766', E'6029264124', E'Cahill', NULL, E'D', E'--- 
+- mburtoncahill@azleg.gov
+', E'senate', E'Meg', E'Burton') RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173118', E'AZ', '2009-12-21 10:14:59.317766', E'87', E'18', '2009-12-21 10:14:59.317766', E'6029265760', E'Pearce', NULL, E'R', E'--- 
+- rpearce@azleg.gov
+', E'senate', E'Russell', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173161', E'AZ', '2009-12-21 10:14:59.327766', E'87', E'19', '2009-12-21 10:14:59.327766', E'6029265288', E'Gray', NULL, E'R', E'--- 
+- cgray@azleg.gov
+', E'senate', E'Chuck', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173257', E'AZ', '2009-12-21 10:14:59.337766', E'87', E'20', '2009-12-21 10:14:59.337766', E'6029265261', E'Huppenthal', NULL, E'R', E'--- 
+- jhuppenthal@azleg.gov
+', E'senate', E'John', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173252', E'AZ', '2009-12-21 10:14:59.337766', E'87', E'21', '2009-12-21 10:14:59.337766', E'6029264481', E'Tibshraeny', NULL, E'R', E'--- 
+- jtibshraeny@azleg.gov
+', E'senate', E'Jay', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173220', E'AZ', '2009-12-21 10:14:59.347766', E'87', E'22', '2009-12-21 10:14:59.347766', E'6029264136', E'Verschoor', NULL, E'R', E'--- 
+- tverschoor@azleg.gov
+', E'senate', E'Thayer', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173167', E'AZ', '2009-12-21 10:14:59.357766', E'87', E'23', '2009-12-21 10:14:59.357766', E'6029265685', E'Rios', NULL, E'D', E'--- 
+- rrios@azleg.gov
+', E'senate', E'Rebecca', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173184', E'AZ', '2009-12-21 10:14:59.367766', E'87', E'24', '2009-12-21 10:14:59.367766', E'6029264139', E'Aguirre', NULL, E'D', E'--- 
+- aaguirre@azleg.gov
+', E'senate', E'Amanda', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173025', E'AZ', '2009-12-21 10:14:59.377766', E'87', E'25', '2009-12-21 10:14:59.377766', E'6029265895', E'Alvarez', NULL, E'D', E'--- 
+- malvarez@azleg.gov
+', E'senate', E'Manuel', E'V.') RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173259', E'AZ', '2009-12-21 10:14:59.387766', E'87', E'26', '2009-12-21 10:14:59.387766', E'6029264326', E'Melvin', NULL, E'R', E'--- 
+- amelvin@azleg.gov
+', E'senate', E'Al', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173262', E'AZ', '2009-12-21 10:14:59.397766', E'87', E'27', '2009-12-21 10:14:59.397766', E'6029264171', E'Garcia', NULL, E'D', E'--- 
+- jgarcia@azleg.gov
+', E'senate', E'Jorge', E'Luis') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6029263429', E'AZ', '2009-12-21 10:14:59.407766', E'87', E'28', '2009-12-21 10:14:59.407766', E'6029265262', E'Aboud', NULL, E'D', E'--- 
+- paboud@azleg.gov
+', E'senate', E'Paula', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173029', E'AZ', '2009-12-21 10:14:59.417766', E'87', E'29', '2009-12-21 10:14:59.417766', E'6029264089', E'Lopez', NULL, E'D', E'--- 
+- llopez@azleg.gov
+', E'senate', E'Linda', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173030', E'AZ', '2009-12-21 10:14:59.417766', E'87', E'30', '2009-12-21 10:14:59.417766', E'6029263235', E'Paton', NULL, E'R', E'--- 
+- jpaton@azleg.gov
+', E'senate', E'Jonathan', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173001', E'AZ', '2009-12-21 10:14:59.427766', E'87', E'1', '2009-12-21 10:14:59.427766', E'6029265874', E'Mason', NULL, E'R', E'--- 
+- lmason@azleg.gov
+', E'house', E'Lucy', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173085', E'AZ', '2009-12-21 10:14:59.437766', E'87', E'1', '2009-12-21 10:14:59.437766', E'6029265172', E'Tobin', NULL, E'R', E'--- 
+- atobin@azleg.gov
+', E'house', E'Andrew', E'M.') RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173102', E'AZ', '2009-12-21 10:14:59.447766', E'87', E'2', '2009-12-21 10:14:59.447766', E'6029265862', E'Deschene', NULL, E'D', E'--- 
+- cdeschene@azleg.gov
+', E'house', E'Christopher', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173002', E'AZ', '2009-12-21 10:14:59.457766', E'87', E'2', '2009-12-21 10:14:59.457766', E'6029265160', E'Chabin', NULL, E'D', E'--- 
+- tchabin@azleg.gov
+', E'house', E'Tom', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173003', E'AZ', '2009-12-21 10:14:59.557766', E'87', E'3', '2009-12-21 10:14:59.557766', E'6029265051', E'McLain', NULL, E'R', E'--- 
+- nmclain@azleg.gov
+', E'house', E'Nancy', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173103', E'AZ', '2009-12-21 10:14:59.567766', E'87', E'3', '2009-12-21 10:14:59.567766', E'6029265408', E'Goodale', NULL, E'R', E'--- 
+- dgoodale@azleg.gov
+', E'house', E'Doris', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173004', E'AZ', '2009-12-21 10:14:59.577766', E'87', E'4', '2009-12-21 10:14:59.577766', E'6029263297', E'Boone', NULL, E'R', E'--- 
+- tboone@azleg.gov
+', E'house', E'Tom', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173104', E'AZ', '2009-12-21 10:14:59.587766', E'87', E'4', '2009-12-21 10:14:59.587766', E'6029265861', E'Burges', NULL, E'R', E'--- 
+- jburges@azleg.gov
+', E'house', E'Judy', E'M.') RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173010', E'AZ', '2009-12-21 10:14:59.597766', E'87', E'5', '2009-12-21 10:14:59.597766', E'6029264129', E'Brown', NULL, E'D', E'--- 
+- jbrown@azleg.gov
+', E'house', E'Jack', E'A.') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173105', E'AZ', '2009-12-21 10:14:59.607766', E'87', E'5', '2009-12-21 10:14:59.607766', E'6029265409', E'Konopnicki', NULL, E'R', E'--- 
+- bkonopnicki@azleg.gov
+', E'house', E'Bill', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173006', E'AZ', '2009-12-21 10:14:59.607766', E'87', E'6', '2009-12-21 10:14:59.607766', E'6029263018', E'Seel', NULL, E'R', E'--- 
+- cseel@azleg.gov
+', E'house', E'Carl', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173048', E'AZ', '2009-12-21 10:14:59.627766', E'87', E'6', '2009-12-21 10:14:59.627766', E'6029263014', E'Crump', NULL, E'R', E'--- 
+- scrump@azleg.gov
+', E'house', E'Sam', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173107', E'AZ', '2009-12-21 10:14:59.637766', E'87', E'7', '2009-12-21 10:14:59.637766', E'6029265503', E'Barnes', NULL, E'R', E'--- 
+- rbarnes@azleg.gov
+', E'house', E'Ray', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173011', E'AZ', '2009-12-21 10:14:59.647766', E'87', E'7', '2009-12-21 10:14:59.647766', E'6029265766', E'Barto', NULL, E'R', E'--- 
+- nbarto@azleg.gov
+', E'house', E'Nancy', E'K.') RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173108', E'AZ', '2009-12-21 10:14:59.657766', E'87', E'8', '2009-12-21 10:14:59.657766', E'6029265170', E'Kavanagh', NULL, E'R', E'--- 
+- jkavanagh@azleg.gov
+', E'house', E'John', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173008', E'AZ', '2009-12-21 10:14:59.657766', E'87', E'8', '2009-12-21 10:14:59.657766', E'6029265828', E'Reagan', NULL, E'R', E'--- 
+- mreagan@azleg.gov
+', E'house', E'Michele', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173109', E'AZ', '2009-12-21 10:14:59.677766', E'87', E'9', '2009-12-21 10:14:59.677766', E'6029265413', E'Lesko', NULL, E'R', E'--- 
+- dlesko@azleg.gov
+', E'house', E'Debbie', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173009', E'AZ', '2009-12-21 10:14:59.677766', E'87', E'9', '2009-12-21 10:14:59.677766', E'6029263255', E'Murphy', NULL, E'R', E'--- 
+- rmurphy@azleg.gov
+', E'house', E'Rick', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173110', E'AZ', '2009-12-21 10:14:59.687766', E'87', E'10', '2009-12-21 10:14:59.687766', E'6029263024', E'Quelland', NULL, E'R', E'--- 
+- dquelland@azleg.gov
+', E'house', E'Doug', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173153', E'AZ', '2009-12-21 10:14:59.697766', E'87', E'10', '2009-12-21 10:14:59.697766', E'6029264173', E'Weiers', NULL, E'R', E'--- 
+- jweiers@azleg.gov
+', E'house', E'Jim', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173111', E'AZ', '2009-12-21 10:14:59.707766', E'87', E'11', '2009-12-21 10:14:59.707766', E'6029263037', E'Meyer', NULL, E'D', E'--- 
+- emeyer@azleg.gov
+', E'house', E'Eric', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173007', E'AZ', '2009-12-21 10:14:59.717766', E'87', E'11', '2009-12-21 10:14:59.717766', E'6029263016', E'Driggs', NULL, E'R', E'--- 
+- adriggs@azleg.gov
+', E'house', E'Adam', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173168', E'AZ', '2009-12-21 10:14:59.727766', E'87', E'12', '2009-12-21 10:14:59.727766', E'6029265955', E'Montenegro', NULL, E'R', E'--- 
+- smontenegro@azleg.gov
+', E'house', E'Steve', E'B.') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173012', E'AZ', '2009-12-21 10:14:59.737766', E'87', E'12', '2009-12-21 10:14:59.737766', E'6029265894', E'Weiers', NULL, E'R', E'--- 
+- jpweiers@azleg.gov
+', E'house', E'Jerry', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'602', E'AZ', '2009-12-21 10:14:59.737766', E'87', E'13', '2009-12-21 10:14:59.737766', E'6026029263392', E'Tovar', NULL, E'D', E'--- 
+- atovar@azleg.gov
+', E'house', E'Anna', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173113', E'AZ', '2009-12-21 10:14:59.747766', E'87', E'13', '2009-12-21 10:14:59.747766', E'6029265830', E'Garcia', NULL, E'D', E'--- 
+- mgarcia@azleg.gov
+', E'house', E'Martha', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173037', E'AZ', '2009-12-21 10:14:59.767766', E'87', E'14', '2009-12-21 10:14:59.767766', E'6029263026', E'Campbell', NULL, E'D', E'--- 
+- chcampbell@azleg.gov
+', E'house', E'Chad', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173114', E'AZ', '2009-12-21 10:14:59.777766', E'87', E'14', '2009-12-21 10:14:59.777766', E'6029263425', E'Meza', NULL, E'D', E'--- 
+- rmeza@azleg.gov
+', E'house', E'Robert', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173015', E'AZ', '2009-12-21 10:14:59.777766', E'87', E'15', '2009-12-21 10:14:59.777766', E'6029265058', E'Sinema', NULL, E'D', E'--- 
+- ksinema@azleg.gov
+', E'house', E'Kyrsten', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173115', E'AZ', '2009-12-21 10:14:59.787766', E'87', E'15', '2009-12-21 10:14:59.787766', E'6029265829', E'Lujan', NULL, E'D', E'--- 
+- dlujan@azleg.gov
+', E'house', E'David', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173117', E'AZ', '2009-12-21 10:14:59.797766', E'87', E'16', '2009-12-21 10:14:59.797766', E'6029263042', E'Campbell,', E'Jr.', E'D', E'--- 
+- clcampbell@azleg.gov
+', E'house', E'Cloves', E'C.') RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173116', E'AZ', '2009-12-21 10:14:59.807766', E'87', E'16', '2009-12-21 10:14:59.807766', E'6029264893', E'Miranda', NULL, E'D', E'--- 
+- bmiranda@azleg.gov
+', E'house', E'Ben', E'R.') RETURNING "id"[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173038', E'AZ', '2009-12-21 10:14:59.827766', E'87', E'17', '2009-12-21 10:14:59.827766', E'6029263028', E'Schapira', NULL, E'D', E'--- 
+- dschapira@azleg.gov
+', E'house', E'David', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173164', E'AZ', '2009-12-21 10:14:59.837766', E'87', E'17', '2009-12-21 10:14:59.837766', E'6029264118', E'Ableser', NULL, E'D', E'--- 
+- eableser@azleg.gov
+', E'house', E'Edward', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173151', E'AZ', '2009-12-21 10:14:59.837766', E'87', E'18', '2009-12-21 10:14:59.837766', E'6029263160', E'Ash', NULL, E'R', E'--- 
+- cash@azleg.gov
+', E'house', E'Cecil', E'P.') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173018', E'AZ', '2009-12-21 10:14:59.857766', E'87', E'18', '2009-12-21 10:14:59.857766', E'6029264467', E'Court', NULL, E'R', E'--- 
+- scourt@azleg.gov
+', E'house', E'Steve', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173019', E'AZ', '2009-12-21 10:14:59.867766', E'87', E'19', '2009-12-21 10:14:59.867766', E'6029265495', E'Adams', NULL, E'R', E'--- 
+- kadams@azleg.gov
+', E'house', E'Kirk', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173119', E'AZ', '2009-12-21 10:14:59.867766', E'87', E'19', '2009-12-21 10:14:59.867766', E'6029263020', E'Crandall', NULL, E'R', E'--- 
+- rcrandall@azleg.gov
+', E'house', E'Rich', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173020', E'AZ', '2009-12-21 10:14:59.877766', E'87', E'20', '2009-12-21 10:14:59.877766', E'6029265898', E'McComish', NULL, E'R', E'--- 
+- jmccomish@azleg.gov
+', E'house', E'John', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173120', E'AZ', '2009-12-21 10:14:59.887766', E'87', E'20', '2009-12-21 10:14:59.887766', E'6029265550', E'Waters', NULL, E'D', E'--- 
+- rwaters@azleg.gov
+', E'house', E'Rae', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173121', E'AZ', '2009-12-21 10:14:59.887766', E'87', E'21', '2009-12-21 10:14:59.887766', E'6029265863', E'Yarbrough', NULL, E'R', E'--- 
+- syarbrough@azleg.gov
+', E'house', E'Steven', E'B.') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173021', E'AZ', '2009-12-21 10:14:59.897766', E'87', E'21', '2009-12-21 10:14:59.897766', E'6029265168', E'Nichols', NULL, E'R', E'--- 
+- wnichols@azleg.gov
+', E'house', E'Warde', E'V.') RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173122', E'AZ', '2009-12-21 10:14:59.907766', E'87', E'22', '2009-12-21 10:14:59.907766', E'6029265735', E'Hendrix', NULL, E'R', E'--- 
+- lhendrix@azleg.gov
+', E'house', E'Laurin', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173022', E'AZ', '2009-12-21 10:14:59.917766', E'87', E'22', '2009-12-21 10:14:59.917766', E'6029264371', E'Biggs', NULL, E'R', E'--- 
+- abiggs@azleg.gov
+', E'house', E'Andy', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173123', E'AZ', '2009-12-21 10:14:59.927766', E'87', E'23', '2009-12-21 10:14:59.927766', E'6029263012', E'McGuire', NULL, E'D', E'--- 
+- bmcguire@azleg.gov
+', E'house', E'Barbara', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173023', E'AZ', '2009-12-21 10:14:59.927766', E'87', E'23', '2009-12-21 10:14:59.927766', E'6029265761', E'Pratt', NULL, E'R', E'--- 
+- fpratt@azleg.gov
+', E'house', E'Frank', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173124', E'AZ', '2009-12-21 10:14:59.937766', E'87', E'24', '2009-12-21 10:14:59.937766', E'6029263002', E'Jones', NULL, E'R', E'--- 
+- rjones@azleg.gov
+', E'house', E'Russell', E'L.') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173179', E'AZ', '2009-12-21 10:14:59.947766', E'87', E'24', '2009-12-21 10:14:59.947766', E'6029263004', E'Pancrazi', NULL, E'D', E'--- 
+- lpancrazi@azleg.gov
+', E'house', E'Lynne', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173125', E'AZ', '2009-12-21 10:14:59.957766', E'87', E'25', '2009-12-21 10:14:59.957766', E'6029265836', E'Fleming', NULL, E'D', E'--- 
+- pfleming@azleg.gov
+', E'house', E'Patricia', E'V.') RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173146', E'AZ', '2009-12-21 10:14:59.967766', E'87', E'25', '2009-12-21 10:14:59.967766', E'6029264321', E'Stevens', NULL, E'R', E'--- 
+- dstevens@azleg.gov
+', E'house', E'David', E'W.') RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173026', E'AZ', '2009-12-21 10:14:59.977766', E'87', E'26', '2009-12-21 10:14:59.977766', E'6029265839', E'Williams', NULL, E'R', E'--- 
+- vwilliams@azleg.gov
+', E'house', E'Vic', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173126', E'AZ', '2009-12-21 10:14:59.987766', E'87', E'26', '2009-12-21 10:14:59.987766', E'6029263398', E'Wright', NULL, E'D', E'--- 
+- nyoungwright@azleg.gov
+', E'house', E'Nancy', E'Young') RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173127', E'AZ', '2009-12-21 10:14:59.987766', E'87', E'27', '2009-12-21 10:14:59.987766', E'6029263278', E'Lopes', NULL, E'D', E'--- 
+- plopes@azleg.gov
+', E'house', E'Phil', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (20.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173027', E'AZ', '2009-12-21 10:15:00.007766', E'87', E'27', '2009-12-21 10:15:00.007766', E'6029265835', E'Bedford', NULL, E'D', E'--- 
+- ocajerobedford@azleg.gov
+', E'house', E'Olivia', E'Cajero') RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173128', E'AZ', '2009-12-21 10:15:00.007766', E'87', E'28', '2009-12-21 10:15:00.007766', E'6029263022', E'Farley', NULL, E'D', E'--- 
+- sfarley@azleg.gov
+', E'house', E'Steve', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173028', E'AZ', '2009-12-21 10:15:00.017766', E'87', E'28', '2009-12-21 10:15:00.017766', E'6029263300', E'Bradley', NULL, E'D', E'--- 
+- dbradley@azleg.gov
+', E'house', E'David', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173129', E'AZ', '2009-12-21 10:15:00.017766', E'87', E'29', '2009-12-21 10:15:00.017766', E'6029263424', E'Heinz', NULL, E'D', E'--- 
+- mheinz@azleg.gov
+', E'house', E'Matt', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173169', E'AZ', '2009-12-21 10:15:00.027766', E'87', E'29', '2009-12-21 10:15:00.027766', E'6029265342', E'Patterson', NULL, E'D', E'--- 
+- dpatterson@azleg.gov
+', E'house', E'Daniel', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173130', E'AZ', '2009-12-21 10:15:00.027766', E'87', E'30', '2009-12-21 10:15:00.027766', E'6029263312', E'Gowan', NULL, E'R', E'--- 
+- dgowan@azleg.gov
+', E'house', E'David', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "legislators" ("fax_number", "region", "created_at", "session", "district", "updated_at", "phone_number", "last_name", "suffix", "party", "email_address", "chamber", "first_name", "middle_name") VALUES(E'6024173147', E'AZ', '2009-12-21 10:15:00.037766', E'87', E'30', '2009-12-21 10:15:00.037766', E'6029265683', E'Antenori', NULL, E'R', E'--- 
+- fantenori@azleg.gov
+', E'house', E'Frank', NULL) RETURNING "id"[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCOMMIT[0m
+
+
+Processing LegislatorsController#index (for 98.213.89.201 at 2009-12-21 03:15:02) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mLegislator Load (10.0ms)[0m   [0mSELECT * FROM "legislators" [0m
+Rendering template within layouts/layout
+Rendering legislators/index
+Completed in 130ms (View: 110, DB: 10) | 200 OK [http://legislative-lookup.technologyaz.com/legislators]
+
+
+Processing LegislatorsController#edit (for 98.213.89.201 at 2009-12-21 03:15:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mLegislator Load (0.0ms)[0m   [0;1mSELECT * FROM "legislators" WHERE ("legislators"."id" = 1) [0m
+Rendering template within layouts/layout
+Rendering legislators/edit
+Rendered legislators/_form (10.0ms)
+Completed in 50ms (View: 30, DB: 0) | 200 OK [http://legislative-lookup.technologyaz.com/legislators/1/edit]
+
+
+Processing LegislatorsController#index (for 98.213.89.201 at 2009-12-21 03:16:00) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mLegislator Load (10.0ms)[0m   [0mSELECT * FROM "legislators" [0m
+Rendering template within layouts/layout
+Rendering legislators/index
+Completed in 200ms (View: 180, DB: 10) | 200 OK [http://legislative-lookup.technologyaz.com/legislators]
+
+
+Processing LegislatorsController#edit (for 98.213.89.201 at 2009-12-21 03:16:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mLegislator Load (0.0ms)[0m   [0;1mSELECT * FROM "legislators" WHERE ("legislators"."id" = 1) [0m
+Rendering template within layouts/layout
+Rendering legislators/edit
+Rendered legislators/_form (0.0ms)
+Completed in 30ms (View: 20, DB: 0) | 200 OK [http://legislative-lookup.technologyaz.com/legislators/1/edit]
+
+
+Processing LegislatorsController#index (for 98.213.89.201 at 2009-12-21 03:16:42) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mLegislator Load (10.0ms)[0m   [0mSELECT * FROM "legislators" [0m
+Rendering template within layouts/layout
+Rendering legislators/index
+Completed in 200ms (View: 170, DB: 10) | 200 OK [http://legislative-lookup.technologyaz.com/legislators]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mDROP TABLE "legislators"[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20091221060842'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060842)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (20.0ms)[0m   [0;1mCREATE TABLE legislators ("id" serial primary key, "chamber" character varying(255), "session" character varying(255), "first_name" character varying(255), "middle_name" character varying(255), "last_name" character varying(255), "suffix" character varying(255), "party" character varying(255), "district" character varying(255), "phone_number" character varying(255), "fax_number" character varying(255), "email_address" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091221060842')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Migrating to AddRegionToLegislator (20091221094340)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+
+
+Processing LegislatorsController#index (for 98.213.89.201 at 2009-12-21 03:17:25) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mLegislator Load (0.0ms)[0m   [0;1mSELECT * FROM "legislators" [0m
+Rendering template within layouts/layout
+Rendering legislators/index
+Completed in 10ms (View: 0, DB: 0) | 200 OK [http://legislative-lookup.technologyaz.com/legislators]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060842)
+Migrating to AddRegionToLegislator (20091221094340)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mDROP TABLE "legislators"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20091221060842'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDistricts (20081210181353)
+Migrating to AddStateLegislativeDistricts (20081211190903)
+Migrating to UpdateDistrictNames (20090624155133)
+Migrating to CreateLegislators (20091221060842)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (20.0ms)[0m   [0;1mCREATE TABLE legislators ("id" serial primary key, "chamber" character varying(255), "session" character varying(255), "first_name" character varying(255), "middle_name" character varying(255), "last_name" character varying(255), "suffix" character varying(255), "party" character varying(255), "district" character varying(255), "phone_number" character varying(255), "fax_number" character varying(255), "email_address" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (10.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091221060842')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Migrating to AddRegionToLegislator (20091221094340)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
