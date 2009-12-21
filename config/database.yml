@@ -1,9 +1,9 @@
 development:
   adapter: postgresql
-  database: legislativelookup
-  username: legislativelookup
-  password: pBe29jXLn3awCgnydlckNyTalwAw2lj4B5ZKK6mNxqeoeKF7XjEUxVnqj7VBgbR
-  host: localhost
+  database: legislativelookup-dev
+  username: developer
+  password: fEPWel6SgANUbPSoJfpIU6u3YFgaGU4eXn9WDHi98LlORIwym386EMGCyH5CVX8
+  host: 173.45.240.253
 
 test:
   adapter: postgresql
